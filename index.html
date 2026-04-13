@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SYNAPSE – ABFRL Smart Retail Experience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- Main App Shell -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-mark">AB</div>
+      <div class="brand-text">
+        <div class="brand-title">ABFRL – Smart Retail Experience</div>
+        <div class="brand-subtitle">Powered by SYNAPSE – Agentic AI Sales Companion</div>
+      </div>
+    </div>
+    <nav class="top-nav">
+      <span class="nav-item active">Home</span>
+      <span class="nav-item">Men</span>
+      <span class="nav-item">Women</span>
+      <span class="nav-item">Occasion Wear</span>
+      <span class="nav-item">Premium</span>
+    </nav>
+
+    <!-- Dev admin quick access -->
+    <div class="dev-admin">
+      <button id="dev-toggle" class="btn ghost tiny">Dev</button>
+      <div id="dev-panel" class="dev-panel" hidden>
+        <div class="dev-row">
+          <label>Seeds (comma-separated)</label>
+          <input id="dev-seeds" type="text" placeholder="https://www.abfrl.com/..." />
+        </div>
+        <div class="dev-row">
+          <label>Limit</label>
+          <input id="dev-limit" type="number" value="30" />
+          <label>Delay (s)</label>
+          <input id="dev-delay" type="number" value="1.5" step="0.1" />
+        </div>
+        <div class="dev-row">
+          <label>Admin Token</label>
+          <input id="dev-token" type="text" placeholder="dev-token or env ADMIN_TOKEN" />
+        </div>
+        <div class="dev-row">
+          <button id="dev-bootstrap" class="btn tiny primary">Run Bootstrap</button>
+          <span id="dev-status" class="dev-status"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Discover Premium Fashion, Guided by AI.</h1>
+        <p>
+          Experience the next generation of retail with ABFRL.
+          Our AI Sales Agent understands your style, curates outfits,
+          and even simulates a seamless checkout – all inside this demo.
+        </p>
+        <div class="hero-cta">
+          <button id="btn-arrivals" class="btn primary" data-show-image="true" data-image="https://picsum.photos/id/1011/420/300">Explore New Arrivals</button>
+          <button id="btn-occasion" class="btn ghost" data-show-image="true" data-image="https://picsum.photos/id/1025/420/300">View Occasion Styles</button>
+        </div>
+        <div class="hero-tagline">
+          SYNAPSE orchestrates multi-agent intelligence – Sales, Recommendation, and Payment – to
+          deliver a unified, hyper-personalized experience.
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="hero-card">
+          <div class="hero-card-header">Live Demo Snapshot</div>
+          <ul class="hero-list">
+            <li><span class="dot online"></span> Sales Agent: Active in Chatbot</li>
+            <li><span class="dot idle"></span> Recommendation Agent: Waiting for request</li>
+            <li><span class="dot idle"></span> Payment Agent: Ready to simulate checkout</li>
+          </ul>
+          <div class="hero-metric-row">
+            <div class="metric-card">
+              <div class="metric-label">Avg. Response</div>
+              <div class="metric-value">0.7s</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Demo Coverage</div>
+              <div class="metric-value">End-to-End</div>
+            </div>
+          </div>
+          <div class="hero-note">
+            Click the floating chat icon (bottom-right) to talk to the
+            <strong>ABFRL AI Sales Agent</strong>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight-grid">
+      <div class="highlight-card">
+        <div class="pill">Sales Agent</div>
+        <h2>Conversational Journey</h2>
+        <p>
+          The Sales Agent chatbot guides the customer from intent capture to purchase,
+          orchestrating specialized agents behind the scenes.
+        </p>
+      </div>
+      <div class="highlight-card">
+        <div class="pill">Recommendation Agent</div>
+        <h2>Smart Outfit Curation</h2>
+        <p>
+          Simulated recommendations showcase how ABFRL can drive discovery with
+          occasion, category, and price-aware suggestions.
+        </p>
+      </div>
+      <div class="highlight-card">
+        <div class="pill">Payment Agent</div>
+        <h2>Frictionless Checkout</h2>
+        <p>
+          The Payment Agent turns intent into a confirmed order with a clean,
+          step-by-step summary and payment confirmation flow.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Chatbot Icon -->
+  <button id="chat-toggle" class="chat-toggle" aria-label="Open ABFRL AI Sales Agent">
+    <span class="chat-toggle-icon">💬</span>
+  </button>
+
+  <!-- Backdrop for expanded chat -->
+  <div id="chat-backdrop" class="chat-backdrop" hidden></div>
+
+  <!-- Chatbot Window -->
+  <div id="chatbot" class="chatbot">
+    <div class="chatbot-header">
+      <div>
+        <div class="chatbot-title">ABFRL AI Sales Agent</div>
+        <div class="chatbot-subtitle">Orchestrating Recommendation &amp; Payment Agents</div>
+      </div>
+      <div id="backend-status" class="backend-status">AI: checking…</div>
+      <button id="chat-close" class="chat-close" aria-label="Close chat">✕</button>
+    </div>
+    <div id="chat-body" class="chat-body">
+      <!-- Messages appended dynamically -->
+    </div>
+    <div class="chat-footer">
+      <div class="chat-actions-label">What would you like to do?</div>
+      <div class="chat-actions">
+        <button id="btn-recommend" class="btn tiny primary">Recommend an outfit</button>
+        <button id="btn-loyalty" class="btn tiny ghost">Check loyalty offers</button>
+        <button id="btn-purchase" class="btn tiny outline">Proceed to purchase</button>
+      </div>
+      <div class="chat-input-row">
+        <input id="chat-input" class="chat-input" type="text"
+          placeholder="Type a message and press Enter or Send"
+          aria-label="Chat input" />
+        <button id="chat-send" class="btn tiny primary">Send</button>
+      </div>
+      <div class="agent-mapping">
+        <div class="mapping-pill sales">Sales Agent: Chat Orchestrator</div>
+        <div class="mapping-pill rec">Recommendation Agent: Product Logic</div>
+        <div class="mapping-pill pay">Payment Agent: Checkout Flow</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

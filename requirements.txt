@@ -1,0 +1,20 @@
+# ABFRL SYNAPSE – Python dependencies
+# Install with:  pip install -r requirements.txt
+
+# ---- Web framework ----
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+
+# ---- LLM (optional – only needed if using local Ollama) ----
+langchain-ollama>=0.1.0
+langchain-core>=0.2.0
+
+# ---- Scraper (optional – only needed for /admin/bootstrap) ----
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+lxml>=4.9.3
+tqdm>=4.66.1
+
+# ---- Utilities ----
+python-dotenv>=1.0.0
+pydantic>=2.0.0
