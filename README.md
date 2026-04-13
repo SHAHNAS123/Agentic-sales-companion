@@ -1,46 +1,43 @@
-````md
-# ABFRL SYNAPSE — Agentic AI Sales Companion
+# ABfRL — Agentic AI Sales Companion
 
 ![ABFRL SYNAPSE](https://img.shields.io/badge/ABFRL-SYNAPSE-6d28d9?style=for-the-badge)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat-square&logo=fastapi)
-![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript)
-![HTML5](https://img.shields.io/badge/HTML5-Frontend-E34F26?style=flat-square&logo=html5)
-![CSS3](https://img.shields.io/badge/CSS3-UI-1572B6?style=flat-square&logo=css3)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat-square\&logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square\&logo=python)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square\&logo=javascript)
+![HTML5](https://img.shields.io/badge/HTML5-Frontend-E34F26?style=flat-square\&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-UI-1572B6?style=flat-square\&logo=css3)
 
 ---
 
 ## Overview
 
-**ABFRL SYNAPSE** is an AI-powered retail intelligence platform built to solve the fragmented customer journey problem across web, mobile, WhatsApp, and in-store channels. It introduces a multi-agent AI system that delivers personalized recommendations, intelligent support, seamless checkout, and premium omnichannel experiences. :contentReference[oaicite:0]{index=0}
+**ABFRL SYNAPSE** is an AI-powered retail intelligence platform designed to solve fragmented customer journeys across web, mobile, WhatsApp, and in-store channels. It uses a multi-agent AI architecture to deliver personalized recommendations, seamless checkout, loyalty integration, and premium omnichannel customer experiences.
 
-Traditional retail systems often separate customer touchpoints, causing inconsistent experiences, repeated interactions, and lost sales opportunities. SYNAPSE unifies these channels through collaborative AI agents that act like a smart digital sales team. :contentReference[oaicite:1]{index=1}
+The platform transforms traditional shopping flows into intelligent conversations where multiple AI agents collaborate like a smart digital sales team.
 
 ---
 
 ## Problem Statement
 
-Modern premium retail customers expect:
+Modern retail customers expect:
 
-- Personalized recommendations  
-- Seamless journeys across channels  
-- Fast support and checkout  
-- Smart offers and loyalty rewards  
-- Consistent premium brand experience  
+* Personalized recommendations
+* Connected journeys across channels
+* Fast support and checkout
+* Smart loyalty rewards
+* Premium and consistent experiences
 
-However, disconnected systems create:
+However, disconnected systems often lead to:
 
-- Poor customer engagement  
-- Lost cross-sell / upsell opportunities  
-- Reduced loyalty  
-- Lower conversion rates  
-- Broken customer trust  
-
-
+* Repeated customer interactions
+* Missed cross-sell opportunities
+* Lower conversions
+* Poor engagement
+* Reduced brand trust
 
 ---
 
-## Our Solution — Multi-Agent AI Architecture
+## Solution Architecture
 
 ```text
 Customer Request
@@ -58,53 +55,50 @@ Payment Agent
 Support Agent
       ↓
 Premium Customer Experience
-````
-
-Each AI agent has a specialized role and works together to guide users from product discovery to successful purchase completion.
+```
 
 ---
 
 ## Core Agents
 
-| Agent                | Responsibility                              |
-| -------------------- | ------------------------------------------- |
-| Sales Agent          | Understands intent and manages conversation |
-| Recommendation Agent | Suggests personalized outfits/products      |
-| Inventory Agent      | Checks product availability                 |
-| Loyalty Agent        | Applies offers, coupons, rewards            |
-| Payment Agent        | Handles checkout flow                       |
-| Support Agent        | Post-purchase support & feedback            |
-
-
+| Agent                | Responsibility                                   |
+| -------------------- | ------------------------------------------------ |
+| Sales Agent          | Understands user intent and manages conversation |
+| Recommendation Agent | Suggests personalized products and outfits       |
+| Inventory Agent      | Checks real-time product availability            |
+| Loyalty Agent        | Applies rewards, coupons, and offers             |
+| Payment Agent        | Handles checkout and order summary               |
+| Support Agent        | Manages post-purchase support and feedback       |
 
 ---
 
 ## Key Features
 
 * Omnichannel retail experience
-* AI-powered product recommendations
+* AI-powered recommendations
 * Real-time inventory awareness
-* Smart loyalty & offers engine
-* Integrated payment workflow
+* Loyalty and offers engine
+* Smart checkout workflow
 * WhatsApp commerce support
 * In-store digital assistance
-* Scalable modular architecture
-* Premium customer engagement system
+* Scalable modular system
+* Premium customer engagement
 
 ---
 
 ## Tech Stack
 
-| Layer     | Technology                      |
-| --------- | ------------------------------- |
-| Frontend  | HTML, CSS, JavaScript, React.js |
-| Mobile    | React Native                    |
-| Backend   | Python, FastAPI                 |
-| Database  | PostgreSQL, ChromaDB            |
-| AI Engine | LangChain, Grok API             |
-| Messaging | Twilio                          |
-| Payments  | Razorpay                        |
-| Tools     | GitHub, VS Code, Figma          |
+| Layer      | Technology             |
+| ---------- | ---------------------- |
+| Frontend   | HTML, CSS, JavaScript  |
+| Web App    | React.js               |
+| Mobile App | React Native           |
+| Backend    | Python, FastAPI        |
+| Database   | PostgreSQL, ChromaDB   |
+| AI / LLM   | LangChain, Grok API    |
+| Messaging  | Twilio                 |
+| Payments   | Razorpay               |
+| Tools      | GitHub, VS Code, Figma |
 
 ---
 
@@ -125,8 +119,6 @@ abfrl/
     └── products.json
 ```
 
-
-
 ---
 
 ## How It Works
@@ -134,32 +126,29 @@ abfrl/
 ### Frontend Flow
 
 ```text
-User enters query
+User enters request
       ↓
-UI captures request
+Intent detected
       ↓
-Detects intent
-(recommendation / loyalty / payment / support)
+API request sent
       ↓
-Calls Backend API
+Agent processes request
       ↓
-Agent generates response
-      ↓
-Response shown to customer
+Response displayed
 ```
 
 ### Backend Flow
 
 ```text
-FastAPI Backend
+FastAPI Server
       ↓
 Agent Engine
       ↓
-AI / Rule Logic
+AI Logic / Rules
       ↓
-Database / Inventory
+Inventory / Data Layer
       ↓
-Return Smart Response
+Smart Response
 ```
 
 ---
@@ -171,31 +160,29 @@ Return Smart Response
 | GET    | /api/health      | Health check           |
 | POST   | /api/chat        | Chat with Sales Agent  |
 | POST   | /api/recommend   | Product recommendation |
-| POST   | /api/payment     | Payment summary        |
+| POST   | /api/payment     | Checkout summary       |
 | POST   | /api/run_flow    | Full demo flow         |
 | GET    | /api/llm_test    | AI connectivity test   |
-| POST   | /admin/bootstrap | Product bootstrap      |
-
-
+| POST   | /admin/bootstrap | Product data bootstrap |
 
 ---
 
-## Installation
+## Installation & Setup
 
-## 1. Clone Repository
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/your-username/abfrl-synapse.git
 cd abfrl-synapse
 ```
 
-## 2. Install Dependencies
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 3. Run Backend
+### 3. Run Backend
 
 ```bash
 python server_api.py
@@ -207,7 +194,7 @@ or
 uvicorn server_api:app --reload --port 8000
 ```
 
-## 4. Launch App
+### 4. Launch Application
 
 Open:
 
@@ -221,33 +208,25 @@ or directly open `index.html`
 
 ## Business Impact
 
-* Higher conversion rates
-* Increased Average Order Value (AOV)
+* Increased conversion rates
+* Higher average order value
 * Better upselling and cross-selling
 * Reduced cart abandonment
 * Faster support resolution
-* Improved customer retention
-* Stronger brand loyalty
-
-
-
----
-
-## Why This Project Matters
-
-SYNAPSE transforms retail from a transactional process into an intelligent customer experience. Instead of static shopping flows, users interact with smart AI agents that understand intent, personalize journeys, and reduce friction across every touchpoint.
+* Improved retention and loyalty
+* Stronger premium brand experience
 
 ---
 
 ## Future Enhancements
 
-* Voice AI shopping assistant
+* Voice AI assistant
 * AR virtual try-on
 * Predictive analytics dashboard
 * Smart store kiosks
 * Multilingual AI support
+* Live order tracking
 * Customer behavior forecasting
-* Live order tracking assistant
 
 ---
 
@@ -260,13 +239,11 @@ Built for **EY Techathon 6.0**
 * Bhargavi N
 * Rinu Antony
 
-
-
 ---
 
 ## License
 
-This project was created for innovation, hackathon demonstration, and educational purposes.
+Developed for innovation, hackathon demonstration, and educational purposes.
 
 ---
 
@@ -275,8 +252,3 @@ This project was created for innovation, hackathon demonstration, and educationa
 **Shahnas M**
 BTech AI & ML Student
 Developer • Innovator • Problem Solver
-
----
-
-```
-```
